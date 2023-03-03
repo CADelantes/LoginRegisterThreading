@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134845216727",
+    "project_id": "loginregisterthreading-3dbe0",
+    "storage_bucket": "loginregisterthreading-3dbe0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134845216727:android:b1f47757b09f69e6a9fd92",
+        "android_client_info": {
+          "package_name": "com.example.loginregisterthreading"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134845216727-4mu0tvub1gbo9vilohu27b2m3fqddbbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdICLZUU1KSyt5YOjeQfa2gnwsJcC4_qI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134845216727-4mu0tvub1gbo9vilohu27b2m3fqddbbs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
