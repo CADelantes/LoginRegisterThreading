@@ -1,6 +1,8 @@
 package com.example.loginregisterthreading;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +37,8 @@ public class Register extends AppCompatActivity {
             if(!FName.isEmpty()&&!LName.isEmpty()&&!UName.isEmpty()&&!Pass.isEmpty()&&CPass.equals(Pass)){
                 user.addUser(FName,LName,UName,Pass,CPass);
                 Toast.makeText(Register.this, "Successfully added " + UName, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
             }else{
                 Toast.makeText(Register.this, "Make sure there are no empty fields or password are the same", Toast.LENGTH_SHORT).show();
             }

@@ -15,7 +15,7 @@ public class Threading extends AppCompatActivity {
 
     private volatile boolean stopThreadFlag = false;
 
-    private Handler mainHandler = new Handler();
+//    private Handler mainHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,49 +33,34 @@ public class Threading extends AppCompatActivity {
             startThread(10);
             increase.setText(String.valueOf(increaseNum));
             increaseNum++;
-            if(increaseNum == 10){
+            if (increaseNum == 10) {
                 increaseNum = 1;
             }
         });
 
         decreaseBtn.setOnClickListener(v -> {
+            stopThread();
             decrease.setText(String.valueOf(decreaseNum));
             decreaseNum--;
-            if(decreaseNum == 1){
+            if (decreaseNum == 1) {
                 decreaseNum = 10;
             }
         });
 
-        startThread = findViewById(R.id.startButton);
-        stopThread = findViewById(R.id.stopButton);
-        helloWorldTextView = findViewById(R.id.helloWorldTextView);
-
-        stopThread.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopThread();
-            }
-        });
     }
 
     public void startThread(int seconds) {
 
-//        for(int i =0; i< seconds; i++){
-//            Log.d("THREAD ACTIVITY", "Start Thread : " + i);
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        for (int i = 0; i < seconds; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-//        GraduationThread thread = new GraduationThread(10);
-//        thread.start();
-
-        GraduationRunnable runnable = new GraduationRunnable(10);
-        new Thread(runnable).start();
-
-
+        GraduationThread thread = new GraduationThread(10);
+        thread.start();
     }
 
     public void stopThread() {
@@ -93,7 +78,6 @@ public class Threading extends AppCompatActivity {
         @Override
         public void run(){
             for(int i =0; i< seconds; i++){
-                Log.d("THREAD ACTIVITY", "Start Thread : " + i);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -102,40 +86,4 @@ public class Threading extends AppCompatActivity {
             }
         }
     }
-
-//    class GraduationRunnable implements Runnable
-//    {
-//        int seconds;
-//
-//        //Non-Default Constructor
-//        GraduationRunnable(int seconds){
-//            this.seconds = seconds;
-//        }
-//
-//        @Override
-//        public void run() {
-//            for(int i =0; i< seconds; i++){
-//                if(stopThreadFlag)
-//                {
-//                    return;
-//                }
-//                if(i == 4) {
-//                    mainHandler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            helloWorldTextView.setText("HAPPY GRADUATION!");
-//                        }
-//                    });
-//
-//                }
-//                Log.d("THREAD ACTIVITY", "Start Thread : " + i);
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
-//    }
 }
